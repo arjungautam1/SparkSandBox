@@ -2,7 +2,7 @@ package status;
 
 public enum StatusResponse {
 
-    SUCCESS("Succss"),
+    SUCCESS("Success"),
     ERROR("Error");
 
     final private String status;
