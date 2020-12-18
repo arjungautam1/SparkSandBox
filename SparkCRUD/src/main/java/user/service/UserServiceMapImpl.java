@@ -50,6 +50,9 @@ public class UserServiceMapImpl implements UserService {
             if (forEdit.getFirstName() != null) {
                 toEdit.setFirstName(forEdit.getFirstName());
             }
+            if (forEdit.getLastName() != null) {
+                toEdit.setLastName(forEdit.getLastName());
+            }
             if (forEdit.getId() != null) {
                 toEdit.setId(forEdit.getId());
             }

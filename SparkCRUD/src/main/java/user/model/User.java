@@ -6,6 +6,9 @@
  */
 package user.model;
 
+import jdk.jfr.DataAmount;
+
+
 public class User {
 
     private String id;
