@@ -4,10 +4,10 @@
  * Date : 2020-12-18
  * Time : 12:05
  */
-package service;
+package user.service;
 
-import exception.UserException;
-import model.User;
+import user.exception.UserException;
+import user.model.User;
 
 import java.util.Collection;
 import java.util.HashMap;

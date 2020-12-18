@@ -1,4 +1,4 @@
-package status;
+package user.status;
 
 public enum StatusResponse {
 

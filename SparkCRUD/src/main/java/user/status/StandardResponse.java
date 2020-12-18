@@ -4,7 +4,7 @@
  * Date : 2020-12-18
  * Time : 11:37
  */
-package status;
+package user.status;
 
 import com.google.gson.JsonElement;
 

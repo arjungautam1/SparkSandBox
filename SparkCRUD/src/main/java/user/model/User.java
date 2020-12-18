@@ -4,7 +4,7 @@
  * Date : 2020-12-18
  * Time : 11:22
  */
-package model;
+package user.model;
 
 public class User {
 

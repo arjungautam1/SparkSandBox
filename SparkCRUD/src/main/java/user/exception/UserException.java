@@ -4,7 +4,7 @@
  * Date : 2020-12-18
  * Time : 11:27
  */
-package exception;
+package user.exception;
 
 public class UserException extends Exception{
     public UserException() {

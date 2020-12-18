@@ -4,14 +4,14 @@
  * Date : 2020-12-18
  * Time : 12:00
  */
-package controller;
+package user.controller;
 
 import com.google.gson.Gson;
-import model.User;
-import service.UserService;
-import service.UserServiceMapImpl;
-import status.StandardResponse;
-import status.StatusResponse;
+import user.model.User;
+import user.service.UserService;
+import user.service.UserServiceMapImpl;
+import user.status.StandardResponse;
+import user.status.StatusResponse;
 
 import static spark.Spark.*;
 
