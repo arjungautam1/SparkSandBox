@@ -22,6 +22,7 @@ public class UserService {
         String query = "select * from users";
         ResultSet resultSet = userDatabase.executeQuery(query);
 
+        /*Get all users */
         if (resultSet != null) {
             try {
                 while (resultSet.next()) {
@@ -39,6 +40,7 @@ public class UserService {
         return userList;
     }
 
+    /*Get user By ID*/
     public User getUserByID(int id) {
         User user = new User();
         String query = "SELECT * from users where id=" + id;
@@ -56,6 +58,14 @@ public class UserService {
             }
         }
         return user;
+    }
+
+    /*Add User*/
+    public boolean addUser(User user) {
+        boolean result = false;
+        String query = "insert into users(id,firstname,lastname,age)values(" + user.getId() + ",'" + user.getFirstName() + "','" + user.getLastName() + "'," + user.getAge() + ")";
+        result = userDatabase.executeUpdate(query);
+        return result;
     }
 
 

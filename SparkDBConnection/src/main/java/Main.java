@@ -30,7 +30,12 @@ public class Main {
             User user = userService.getUserByID(id);
             return mapper.writeValueAsString(user);
         });
+        post("/user", (request, response) -> {
+            User user = mapper.readValue(request.body(), User.class);
+            boolean result = userService.addUser(user);
+            return mapper.writeValueAsString(result);
 
+        });
 
 
         after(((request, response) -> response.type("application/json")));
