@@ -39,5 +39,24 @@ public class UserService {
         return userList;
     }
 
+    public User getUserByID(int id) {
+        User user = new User();
+        String query = "SELECT * from users where id=" + id;
+        ResultSet resultSet = userDatabase.executeQuery(query);
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    user.setId(resultSet.getInt("id"));
+                    user.setFirstName(resultSet.getString("firstname"));
+                    user.setLastName(resultSet.getString("lastname"));
+                    user.setAge(resultSet.getInt("age"));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
+    }
+
 
 }

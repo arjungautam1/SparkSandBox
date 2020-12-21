@@ -25,8 +25,16 @@ public class Main {
             return mapper.writeValueAsString(userList);
         });
 
+        get("/user/:id", (request, response) -> {
+            int id = Integer.parseInt(request.params(":id"));
+            User user = userService.getUserByID(id);
+            return mapper.writeValueAsString(user);
+        });
+
+
 
         after(((request, response) -> response.type("application/json")));
     }
+
 
 }
