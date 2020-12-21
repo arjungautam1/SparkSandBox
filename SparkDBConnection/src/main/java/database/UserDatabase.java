@@ -6,8 +6,6 @@
  */
 package database;
 
-import javax.xml.transform.Result;
-import java.io.Serializable;
 import java.sql.*;
 
 public class UserDatabase {
