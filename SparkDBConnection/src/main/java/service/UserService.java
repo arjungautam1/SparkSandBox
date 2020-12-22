@@ -68,7 +68,7 @@ public class UserService {
         return result;
     }
 
-    /*Update User */
+    /*Update User by ID */
     public User updateUser(int id, User user) {
         boolean result = false;
         User previousUser = getUserByID(id);
@@ -83,13 +83,20 @@ public class UserService {
             previousUser.setAge(user.getAge());
         }
         user = previousUser;
-        String query = "update users set firstname='" + user.getFirstName() + "',lastname='" + user.getLastName() + "',age=" + user.getAge() + " where id="+user.getId();
+        String query = "update users set firstname='" + user.getFirstName() + "',lastname='" + user.getLastName() + "',age=" + user.getAge() + " where id="+id;
         result = userDatabase.executeUpdate(query);
         if (!result) {
             previousUser = null;
         }
         return user;
+    }
 
+    /*Delete User by ID*/
+    public boolean deleteUser(int id){
+        boolean result=false;
+        String query="delete from users where id="+id;
+        result=userDatabase.executeUpdate(query);
+        return result;
     }
 
 

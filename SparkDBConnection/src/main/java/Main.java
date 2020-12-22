@@ -19,6 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
         port(5678);
+
         get("/users", (request, response) -> {
 
             List<User> userList = userService.getAllUser();
@@ -30,16 +31,24 @@ public class Main {
             User user = userService.getUserByID(id);
             return mapper.writeValueAsString(user);
         });
+
         post("/user", (request, response) -> {
             User user = mapper.readValue(request.body(), User.class);
             boolean result = userService.addUser(user);
             return mapper.writeValueAsString(result);
         });
+
         put("/user/:id", (request, response) -> {
             int id = Integer.parseInt(request.params(":id"));
             User user = mapper.readValue(request.body(), User.class);
             user = userService.updateUser(id, user);
             return mapper.writeValueAsString(user);
+        });
+
+        delete("/user/:id", (request, response) -> {
+            int id = Integer.parseInt(request.params(":id"));
+            boolean result = userService.deleteUser(id);
+            return mapper.writeValueAsString(result);
         });
 
 
