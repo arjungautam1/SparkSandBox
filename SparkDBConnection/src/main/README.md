@@ -1,6 +1,6 @@
 
-#Connect Spark With Mysql Database
-This is the example implementation REST API based on Java8 , [SparkJava](http://sparkjava.com/) framework 
+
+## Connect Spark With Mysql Database
 ### The API
 http : http://localhost:5678/Method
 
