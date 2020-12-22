@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
         port(5678);
-        get("/user", (request, response) -> {
+        get("/users", (request, response) -> {
 
             List<User> userList = userService.getAllUser();
             return mapper.writeValueAsString(userList);
@@ -34,7 +34,12 @@ public class Main {
             User user = mapper.readValue(request.body(), User.class);
             boolean result = userService.addUser(user);
             return mapper.writeValueAsString(result);
-
+        });
+        put("/user/:id", (request, response) -> {
+            int id = Integer.parseInt(request.params(":id"));
+            User user = mapper.readValue(request.body(), User.class);
+            user = userService.updateUser(id, user);
+            return mapper.writeValueAsString(user);
         });
 
 

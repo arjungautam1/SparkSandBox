@@ -68,5 +68,29 @@ public class UserService {
         return result;
     }
 
+    /*Update User */
+    public User updateUser(int id, User user) {
+        boolean result = false;
+        User previousUser = getUserByID(id);
+
+        if (previousUser.getFirstName() != user.getFirstName() && user.getFirstName() != null) {
+            previousUser.setFirstName(user.getFirstName());
+        }
+        if (previousUser.getLastName() != user.getLastName() && user.getLastName() != null) {
+            previousUser.setLastName(user.getLastName());
+        }
+        if (previousUser.getAge() != user.getAge() && previousUser.getAge() != 0) {
+            previousUser.setAge(user.getAge());
+        }
+        user = previousUser;
+        String query = "update users set firstname='" + user.getFirstName() + "',lastname='" + user.getLastName() + "',age=" + user.getAge() + " where id="+user.getId();
+        result = userDatabase.executeUpdate(query);
+        if (!result) {
+            previousUser = null;
+        }
+        return user;
+
+    }
+
 
 }
